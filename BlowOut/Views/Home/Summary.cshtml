@@ -1,0 +1,50 @@
+﻿@model BlowOut.Models.Instrument
+@{
+    ViewBag.Title = "Thank you!";
+}
+
+<h2>Thank you, @ViewBag.Client.Client_FirstName @ViewBag.Client.Client_LastName, for placing your order with us here at BlowOut!</h2>
+<h4>You can see your details below.</h4>
+
+<div>
+    <h4>Instrument</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Order Number:
+        </dt>
+
+        <dd>
+            @ViewBag.Client.ClientID
+        </dd>
+
+        <dt>
+            Instrument:
+        </dt>
+
+        <dd>
+            @ViewBag.Instrument.InstrumentDesc
+        </dd>
+
+        <dt>
+            Condition
+        </dt>
+
+        <dd>
+            @ViewBag.Instrument.InstrumentType
+        </dd>
+
+        <dt>
+            Monthly Price
+        </dt>
+
+        <dd>
+            @ViewBag.Instrument.InstrumentPrice
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InstrumentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

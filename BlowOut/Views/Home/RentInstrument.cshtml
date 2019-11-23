@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "RentInstrument";
+}
+<h2 id="name">@Html.Raw(ViewBag.InstrumentName)</h2>
+
+
+<div class="left">
+    <img src="@Html.Raw(ViewBag.Picture)" class= "instrumentpic"/>
+</div>
+
+<div class="right">
+    <p> Used Rental Price: @Html.Raw(ViewBag.InstrumentUsed)</p>
+
+    <p> New Rental Price: @Html.Raw(ViewBag.InstrumentNew)</p>
+</div>
+
+<div class="farright">
+    <p>If you rent for more than 18 months, the instrument becomes yours. <br />
+    If you return it at any time before 3 months there will be a $200 re-stocking fee. <br />
+    If you return it after 3 months you forfeit any equity in the instrument.</p>
+</div>
