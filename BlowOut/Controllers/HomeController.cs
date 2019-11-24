@@ -46,13 +46,20 @@ namespace BlowOut.Controllers
         {
             List<Instrument> stuff = db.Instruments.ToList<Instrument>();
             ViewBag.Instruments = stuff;
-            return View(stuff);
+            
+            foreach (var item in stuff)
+            {
+                ViewBag.Instruments += "<div class='col-sm-4' style='padding: 10px; font-family: Bahnschrift;'>";
+                ViewBag.Instruments += "<h4>" + item.InstrumentDesc + "</h4>";
+                ViewBag.Instruments += "<a href='/Home/Create?ID=" + item.InstrumentID + "'><img src='/Content/images/" + item.InstrumentDesc.ToLower() + ".jpg' style='height: 200px;'/></a>";
+                ViewBag.Instruments += "</div>";
+            }
+
+            return View();
         }
 
         public ActionResult RentInstrument(string type)
         {
-            
-
             return View();
         }
 
@@ -67,7 +74,7 @@ namespace BlowOut.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientID,Client_FirstName,Client_LastName,Client_StreetAddress,Client_City,Client_Zipcode,Client_Email,Client_Phone")] Client client, int ID)
+        public ActionResult Create([Bind(Include = "ClientID,Client_FirstName,Client_LastName,Client_StreetAddress,Client_City,Client_State,Client_Zipcode,Client_Email,Client_Phone")] Client client, int ID)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +100,8 @@ namespace BlowOut.Controllers
 
             ViewBag.Instrument = inst;
             ViewBag.Client = cli;
-
+            ViewBag.MonthlyPrice = Math.Round((inst.InstrumentPrice), 2);
+            ViewBag.TotalPrice = Math.Round((inst.InstrumentPrice * 18), 2);
             return View(inst);
         }
 

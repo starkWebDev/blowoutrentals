@@ -4,10 +4,11 @@
 }
 
 <h2>Thank you, @ViewBag.Client.Client_FirstName @ViewBag.Client.Client_LastName, for placing your order with us here at BlowOut!</h2>
+<br />
 <h4>You can see your details below.</h4>
-
+<br />
 <div>
-    <h4>Instrument</h4>
+    <h4>Order Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,24 +28,31 @@
         </dd>
 
         <dt>
-            Condition
+            Condition:
         </dt>
 
         <dd>
-            @ViewBag.Instrument.InstrumentType
+            @ViewBag.Instrument.Type
         </dd>
 
         <dt>
-            Monthly Price
+            Monthly Price:
         </dt>
 
         <dd>
-            @ViewBag.Instrument.InstrumentPrice
+            $@ViewBag.MonthlyPrice
+        </dd>
+
+        <dt>
+            18-Month Price:
+        </dt>
+
+        <dd>
+            $@ViewBag.TotalPrice
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.InstrumentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

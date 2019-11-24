@@ -1,6 +1,4 @@
-﻿body {
-}
-
+﻿
 /* Add a class called myFooterText which changes the font to whatever you'd like. */
 .myFooterText {
     font-family: Bahnschrift;
@@ -113,5 +111,4 @@ body {
         display: block;
         margin-bottom: 20px;
     }
-}
 }
