@@ -1,12 +1,8 @@
 ﻿@model IEnumerable<BlowOut.Models.Instrument>
 <h2>Rentals</h2>
-@*@ViewBag.Instruments[0].InstrumentDesc*@
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    @foreach (var item in Model)
-    {
-        @Html.ActionLink(item.InstrumentDesc, "Create", new { id = item.InstrumentID })
-    }
-</table>
+
+<div class="container-fluid">  
+
+    @Html.Raw((string)ViewBag.Instruments)
+    
+</div>
